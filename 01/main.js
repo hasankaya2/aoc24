@@ -1,5 +1,5 @@
 const fs = require('node:fs');
-const text = fs.readFileSync("./input.txt").toString();
+const text = fs.readFileSync("./input.txt").toString().trim();
 const linesArray = text.split(`\n`);
 let result = 0;
 const lrArray = {
