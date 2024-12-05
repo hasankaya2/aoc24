@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { url } = require('inspector');
 const grid = fs.readFileSync('./input.txt').toString().trim().split('\n').map(x => x.split(''))
 let xmas = 0;
 for (let y = 0; y < grid.length; y++) {
@@ -70,5 +69,4 @@ for (let y = 0; y < grid.length; y++) {
         }
     }
 }
-
 console.log("Part 2: " + xmas2)
