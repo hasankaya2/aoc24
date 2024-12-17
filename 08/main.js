@@ -20,7 +20,7 @@ for (let y = 0; y < grid.length; y++) {
             d.push(((yy-y) / (xx-x)) + "|" + f)
         }
         let dd = [...new Set(d)]
-        if (d.length != dd.length || grid[y][x] != '.') antinodes2.add([y, x])
+        if (d.length != dd.length || grid[y][x] != '.') antinodes2.add(`${y}|${x}`)
     }
 }
 console.log(`Part 2: ${antinodes2.size}`)
