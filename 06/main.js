@@ -4,6 +4,32 @@ var path = new Map();
 let start = grid.map((v, i) => [v.indexOf('^'), i]).filter(v => v[0] != -1)[0]
 let dir = 0;
 let pos = start
+
+function move(pos, dir, obstacles) {
+    switch (dir) {
+        case 0: // up
+            let d = Number.MAX_VALUE;
+            let t = pos[1];
+            for (const ob of obstacles.rows) {
+                if (ob[1] < pos[1] && pos[1] - ob[1] < d) {
+                    t = ob[1] - 1
+                    d = pos[1] - ob[1]
+                }
+            }
+            return t
+        case 1: // right
+            let d = Number.MAX_VALUE;
+            let t = pos[0];
+            for (const ob of obstacles.cols) {
+                if (ob[0] < pos[0] && pos[0] - ob[1] < d) {
+                    t = ob[1] - 1
+                    d = pos[1] - ob[1]
+                }
+            }
+            return t
+    }
+}
+
 while (true) {
     let k = `${pos[0]},${pos[1]}`
     path.set(k, true)
@@ -29,4 +55,8 @@ while (true) {
     pos = next
 }
 console.log(`Part 1: ${path.size}`)
+
+function check_loop(pos, obstacles) {
+
+}
 
