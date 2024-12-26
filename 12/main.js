@@ -37,18 +37,8 @@ for (let y = 0; y < grid.length; y++) {
             let down_r = is_solid(cy + 1, cx + 1)
             let up_l = is_solid(cy - 1, cx - 1)
             let down_l = is_solid(cy + 1, cx - 1)
-            if (up && right && !up_r) {
-                corners++
-            }
-            if (up && left && !up_l) {
-                corners++
-            }
-            if (down && right && !down_r) {
-                corners++
-            }
-            if (down && left && !down_l) {
-                corners++
-            }
+
+            corners += (up && right && !up_r) + (up && left && !up_l) + (down && right && !down_r) + (down && left && !down_l)
             if ((!up && !left) || (!up && !right) || (!down && !left) || (!down && !right)) {
                 corners += Math.max(1, 4 - 2 * (up + down + left + right))
             }
