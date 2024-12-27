@@ -15,4 +15,4 @@ with open("./input.txt") as f:
                 tokens += int(A * 3 + B)
         return tokens
 print("Part 1:", run(False))
-print("Part 1:", run(True))
+print("Part 2:", run(True))
